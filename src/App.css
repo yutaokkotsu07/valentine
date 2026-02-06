@@ -1,0 +1,261 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app {
+  min-height: 100vh;
+  background: linear-gradient(
+    -45deg,
+    #ff6b9d 0%,
+    #ffa3db 25%,
+    #c344bc 50%,
+    #ff6b9d 75%,
+    #ff85c1 100%
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.stars,
+.stars2,
+.stars3 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.stars {
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, white, rgba(255, 255, 255, 0.2)),
+    radial-gradient(2px 2px at 60px 70px, white, rgba(255, 255, 255, 0.2)),
+    radial-gradient(1px 1px at 50px 50px, white, rgba(255, 255, 255, 0.2)),
+    radial-gradient(1px 1px at 130px 80px, white, rgba(255, 255, 255, 0.2)),
+    radial-gradient(2px 2px at 90px 10px, white, rgba(255, 255, 255, 0.2));
+  background-size: 200px 200px;
+  animation: twinkle 5s infinite;
+}
+
+.stars2 {
+  background-image: 
+    radial-gradient(2px 2px at 30px 40px, white, rgba(255, 255, 255, 0.2)),
+    radial-gradient(1px 1px at 70px 20px, white, rgba(255, 255, 255, 0.2)),
+    radial-gradient(2px 2px at 100px 90px, white, rgba(255, 255, 255, 0.2));
+  background-size: 300px 300px;
+  animation: twinkle 7s infinite reverse;
+}
+
+.stars3 {
+  background-image: 
+    radial-gradient(1px 1px at 10px 60px, white, rgba(255, 255, 255, 0.2)),
+    radial-gradient(1px 1px at 80px 100px, white, rgba(255, 255, 255, 0.2));
+  background-size: 250px 250px;
+  animation: twinkle 6s infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.container {
+  position: relative;
+  z-index: 10;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.content {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+  padding: 3rem 2rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  animation: slideUp 0.8s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.title {
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, #ff1744, #c344bc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  animation: fadeInScale 0.8s ease-out;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #ff6b9d;
+  margin-bottom: 2rem;
+  font-weight: 500;
+  animation: fadeIn 1s ease-out 0.2s both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.heart-button {
+  font-size: 3rem;
+  background: none;
+  border: 3px solid #ff6b9d;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  margin: 2rem auto;
+  box-shadow: 0 8px 25px rgba(255, 107, 157, 0.3);
+}
+
+.heart-button:hover {
+  transform: scale(1.15) rotate(-10deg);
+  box-shadow: 0 12px 40px rgba(255, 107, 157, 0.5);
+  border-color: #ff1744;
+}
+
+.heart-button:active {
+  transform: scale(0.95);
+}
+
+.heart-button.pulse {
+  animation: heartPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes heartPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.hint {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  min-height: 20px;
+  animation: fadeIn 0.6s ease-out 0.3s both;
+}
+
+.rose-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.rose {
+  font-size: 2.5rem;
+  animation: roseFloat 3s ease-in-out infinite;
+}
+
+@keyframes roseFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+}
+
+.footer {
+  color: #999;
+  font-size: 0.85rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #ddd;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .content {
+    padding: 2rem 1.5rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .heart-button {
+    font-size: 2rem;
+    width: 80px;
+    height: 80px;
+  }
+
+  .rose-container {
+    gap: 1rem;
+  }
+
+  .rose {
+    font-size: 2rem;
+  }
+}
